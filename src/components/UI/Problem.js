@@ -1,6 +1,15 @@
 import styled from 'styled-components';
 
-export default styled.button`
+export const ProblemLabel = styled.label`
+  font-size: 20px;
+  margin-right: 10px;
+  text-align: left;
+  height: 40px;
+  display: flex;
+  align-items: center;
+`;
+
+export const Problem = styled.button`
   display: inline-block;
   background: red;
   color: white;

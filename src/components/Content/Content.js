@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import Form from 'components/Form';
-import Problem from 'components/UI/Problem';
+import { Problem } from 'components/UI/Problem';
 import Why from 'components/UI/Why';
 import Indent from 'components/UI/Indent';
 import Content from '../Content';

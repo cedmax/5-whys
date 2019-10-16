@@ -1,7 +1,8 @@
 import React, { useCallback, useRef, useEffect } from 'react';
 import Input from 'components/UI/Input';
 import Button from 'components/UI/Button';
-import { ProblemLabel, WhyLabel } from 'components/UI/Labels';
+import { ProblemLabel } from 'components/UI/Problem';
+import { WhyLabel, Wrapper } from 'components/UI/Why';
 
 export default ({ addContent, active, level, parent }) => {
   const form = useRef();
@@ -27,13 +28,19 @@ export default ({ addContent, active, level, parent }) => {
   return (
     level === active.level &&
     (parent === active.content || !parent) && (
-      <form ref={form} onSubmit={onSubmit}>
+      <Wrapper as="form" ref={form} onSubmit={onSubmit}>
         <Label htmlFor="toSave">
           {isProblem ? 'Problem Statement' : 'Why?'}
         </Label>
-        <Input ref={input} isProblem={isProblem} type="text" name="toSave" />
+        <Input
+          id="toSave"
+          ref={input}
+          isProblem={isProblem}
+          type="text"
+          name="toSave"
+        />
         <Button type="submit">add</Button>
-      </form>
+      </Wrapper>
     )
   );
 };
