@@ -18,4 +18,5 @@ export const Problem = styled.button`
   margin-bottom: 10px;
   border: 0;
   font-size: 100%;
+  cursor: pointer;
 `;

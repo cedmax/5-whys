@@ -5,27 +5,22 @@ import Why from 'components/UI/Why';
 import Indent from 'components/UI/Indent';
 import Content from '../Content';
 
-export default ({ parent, content, changeParent, level }) => {
-  const onClick = useCallback(
-    item => {
-      changeParent(item);
-    },
-    [changeParent]
-  );
+export default ({ parent, content, changeParent }) => {
+  const onClick = useCallback(item => changeParent(item), [changeParent]);
 
   return (
-    <Indent level={level}>
+    <Indent>
       {content.length > 0 &&
         content.map(item => {
-          const Body = level === 0 ? Problem : Why;
+          const Body = !item.parent ? Problem : Why;
           return (
             <div key={item.content}>
               <Body onClick={() => onClick(item)}>{item.content}</Body>
-              <Content level={level + 1} parent={item.content} />
+              <Content parent={item.id} />
             </div>
           );
         })}
-      <Form level={level} parent={parent} />
+      <Form parent={parent} />
     </Indent>
   );
 };

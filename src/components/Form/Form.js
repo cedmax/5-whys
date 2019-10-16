@@ -4,7 +4,7 @@ import Button from 'components/UI/Button';
 import { ProblemLabel } from 'components/UI/Problem';
 import { WhyLabel, Wrapper } from 'components/UI/Why';
 
-export default ({ addContent, active, level, parent }) => {
+export default ({ addContent, active, parent }) => {
   const form = useRef();
   const input = useRef();
   const onSubmit = useCallback(
@@ -18,16 +18,14 @@ export default ({ addContent, active, level, parent }) => {
   );
 
   useEffect(() => {
-    console.log('in');
     input.current && input.current.focus();
   }, [input]);
 
-  const isProblem = level === 0;
+  const isProblem = !parent;
   const Label = isProblem ? ProblemLabel : WhyLabel;
 
   return (
-    level === active.level &&
-    (parent === active.content || !parent) && (
+    (parent === active.id || !active.id) && (
       <Wrapper as="form" ref={form} onSubmit={onSubmit}>
         <Label htmlFor="toSave">
           {isProblem ? 'Problem Statement' : 'Why?'}

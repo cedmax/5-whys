@@ -1,18 +1,22 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import Content from 'components/Content';
+import Download from 'components/Download';
+import Upload from 'components/Upload';
 import Layout from 'components/UI/Layout';
 import Title from 'components/UI/Title';
 import store from 'store';
 
 function App() {
   return (
-    <Layout>
-      <Provider store={store}>
-        <Title>5whys</Title>
-        <Content level={0} />
-      </Provider>
-    </Layout>
+    <Provider store={store}>
+      <Title>5whys</Title>
+      <Layout>
+        <Content />
+        <Upload />
+        <Download />
+      </Layout>
+    </Provider>
   );
 }
 
