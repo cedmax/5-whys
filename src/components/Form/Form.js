@@ -25,7 +25,7 @@ export default ({ addContent, active, parent }) => {
   const Label = isProblem ? ProblemLabel : WhyLabel;
 
   return (
-    (parent === active.id || !active.id) && (
+    (parent === active || !active) && (
       <Wrapper as="form" ref={form} onSubmit={onSubmit}>
         <Label htmlFor="toSave">
           {isProblem ? 'Problem Statement' : 'Why?'}

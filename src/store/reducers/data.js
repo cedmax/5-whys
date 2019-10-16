@@ -3,9 +3,7 @@ import constants from 'store/constants';
 
 const initialState = {
   content: [],
-  active: {
-    id: '',
-  },
+  active: '',
 };
 
 const generateID = () => (+new Date()).toString(36).slice(-8);
@@ -14,31 +12,24 @@ const reducer = createReducers({
   [constants.ADD_CONTENT]: (state, { content }) => {
     const newContent = [...state.content];
     const id = generateID();
-    const { id: parentId } = state.active;
-    newContent.push({ id, content, parent: parentId || undefined });
+    newContent.push({ id, content, parent: state.active || undefined });
 
     return {
       ...state,
       content: newContent,
-      active: {
-        id,
-      },
+      active: id,
     };
   },
   [constants.CHANGE_PARENT]: (state, { id }) => {
     return {
       ...state,
-      active: {
-        id,
-      },
+      active: id,
     };
   },
   [constants.RESTORE_DATA]: (state, data) => {
     return {
       content: data,
-      active: {
-        id: data.find(item => !item.parent).id,
-      },
+      active: data.find(item => !item.parent).id,
     };
   },
 });
