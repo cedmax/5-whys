@@ -47,6 +47,7 @@ const Why = styled.button`
   margin-left: 18px;
   margin-bottom: 10px;
   margin-right: 5px;
+  cursor: pointer;
   border: 0;
   font-size: 100%;
 

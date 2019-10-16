@@ -17,6 +17,7 @@ export default ({ addContent, active, level, parent }) => {
   );
 
   useEffect(() => {
+    console.log('in');
     input.current && input.current.focus();
   }, [input]);
 
@@ -27,8 +28,10 @@ export default ({ addContent, active, level, parent }) => {
     level === active.level &&
     (parent === active.content || !parent) && (
       <form ref={form} onSubmit={onSubmit}>
-        <Label for="toSave">{isProblem ? 'Problem Statement' : 'Why?'}</Label>
-        <Input isProblem={isProblem} type="text" name="toSave" />
+        <Label htmlFor="toSave">
+          {isProblem ? 'Problem Statement' : 'Why?'}
+        </Label>
+        <Input ref={input} isProblem={isProblem} type="text" name="toSave" />
         <Button type="submit">add</Button>
       </form>
     )
