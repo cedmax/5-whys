@@ -5,6 +5,7 @@ import Download from 'components/Download';
 import Upload from 'components/Upload';
 import Layout from 'components/UI/Layout';
 import Title from 'components/UI/Title';
+import Footer from 'components/Footer/Footer';
 import store from 'store';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Content />
         <Upload />
         <Download />
+        <Footer />
       </Layout>
     </Provider>
   );

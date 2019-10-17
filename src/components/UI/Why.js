@@ -7,7 +7,7 @@ export const WhyLabel = styled.label`
   align-items: center;
   height: 40px;
   position: relative;
-  background: DarkOrange;
+  background: #ff6700;
   color: white;
   padding: 0 10px;
   margin-left: 18px;
@@ -27,14 +27,14 @@ export const WhyLabel = styled.label`
     height: 0;
     border-style: solid;
     border-width: 20px 0 20px 18px;
-    border-color: DarkOrange DarkOrange DarkOrange transparent;
+    border-color: #ff6700 #ff6700 #ff6700 transparent;
   }
 
   &::after {
     border-width: 20px 0 20px 18px;
     right: -18px;
     left: auto;
-    border-color: transparent DarkOrange transparent DarkOrange;
+    border-color: transparent #ff6700 transparent #ff6700;
   }
 `;
 
@@ -56,11 +56,11 @@ const Why = styled(WhyLabel)`
 
   &::before,
   &::after {
-    border-color: DarkOrange DarkOrange DarkOrange transparent;
+    border-color: #ff6700 #ff6700 #ff6700 transparent;
   }
 
   &::after {
-    border-color: transparent DarkOrange transparent DarkOrange;
+    border-color: transparent #ff6700 transparent #ff6700;
   }
 `;
 
