@@ -4,7 +4,7 @@ import Button from 'components/UI/Button';
 import { ProblemLabel } from 'components/UI/Problem';
 import { WhyLabel, Wrapper } from 'components/UI/Why';
 
-export default ({ addContent, active, parent }) => {
+export default ({ onSave, draft = {}, active, parent }) => {
   const form = useRef();
   const input = useRef();
   const onSubmit = useCallback(
@@ -12,9 +12,9 @@ export default ({ addContent, active, parent }) => {
       e.preventDefault();
       const formData = new FormData(form.current);
       const content = formData.get('toSave');
-      content && addContent(content);
+      content && onSave({ ...draft, content });
     },
-    [addContent]
+    [onSave, draft]
   );
 
   useEffect(() => {
@@ -34,6 +34,7 @@ export default ({ addContent, active, parent }) => {
           id="toSave"
           ref={input}
           isProblem={isProblem}
+          defaultValue={draft.content || ''}
           type="text"
           name="toSave"
         />

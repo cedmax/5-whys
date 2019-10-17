@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  addContent,
+  onSave: addContent,
 };
 
 export default connect(

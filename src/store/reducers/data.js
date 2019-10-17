@@ -10,7 +10,7 @@ const initialState = {
 const generateID = () => (+new Date()).toString(36).slice(-8);
 
 const reducer = createReducers({
-  [constants.ADD]: (state, content) => {
+  [constants.ADD]: (state, { content }) => {
     const newContent = [...state.content];
     const id = generateID();
     newContent.push({ id, content, parent: state.active || undefined });
