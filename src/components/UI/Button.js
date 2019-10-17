@@ -20,8 +20,7 @@ export const UploadButton = styled.button`
 `;
 
 export const DownloadButton = styled(UploadButton)`
-  position: absolute;
   text-decoration: none;
-  right: 10%;
-  bottom: 10%;
+  margin-left: 90%;
+  transform: translateX(-100%);
 `;
