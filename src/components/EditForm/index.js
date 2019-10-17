@@ -1,16 +1,14 @@
 import { connect } from 'react-redux';
-import { changeParent, editContent } from 'store/action-creators';
-import { getContent, getDraft } from 'store/selectors';
-import UiComponent from './Content';
+import { saveContent } from 'store/action-creators';
+import { getDraft } from 'store/selectors';
+import UiComponent from './EditForm';
 
 const mapStateToProps = (state, props) => ({
-  content: getContent(state, props),
   draft: getDraft(state),
 });
 
 const mapDispatchToProps = {
-  changeParent,
-  editContent,
+  saveContent,
 };
 
 export default connect(

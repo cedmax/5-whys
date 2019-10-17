@@ -1,25 +1,24 @@
 import React, { useCallback } from 'react';
 import Form from 'components/Form';
-import { Problem } from 'components/UI/Problem';
-import Why from 'components/UI/Why';
 import Indent from 'components/UI/Indent';
-import Content from '../Content';
+import SingleItem from './SingleItem';
 
-export default ({ parent, content, changeParent }) => {
+export default ({ draft, parent, content, changeParent, editContent }) => {
   const onClick = useCallback(item => changeParent(item), [changeParent]);
+  const onEdit = useCallback(item => editContent(item), [editContent]);
 
   return (
     <Indent>
       {content.length > 0 &&
-        content.map(item => {
-          const Body = !item.parent ? Problem : Why;
-          return (
-            <div key={item.content}>
-              <Body onClick={() => onClick(item)}>{item.content}</Body>
-              <Content parent={item.id} />
-            </div>
-          );
-        })}
+        content.map(item => (
+          <SingleItem
+            key={item.id}
+            item={item}
+            draft={draft}
+            onEdit={onEdit}
+            onClick={onClick}
+          />
+        ))}
       <Form parent={parent} />
     </Indent>
   );

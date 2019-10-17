@@ -68,11 +68,18 @@ export const Wrapper = styled.div`
   display: flex;
 `;
 
-export default ({ children, onClick }) => (
+const Edit = styled.button`
+  background: transparent;
+  border: 0;
+  margin: 17px 5px 0;
+`;
+
+export default ({ children, onClick, onEdit }) => (
   <Wrapper>
     <Why as="button" onClick={onClick}>
       Why?
     </Why>
     <Content as="span">{children}</Content>
+    <Edit onClick={onEdit}>edit</Edit>
   </Wrapper>
 );
