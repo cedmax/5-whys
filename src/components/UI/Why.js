@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Tooltip } from 'react-tippy';
+import ReactMarkdown from 'react-markdown';
 
 export const WhyLabel = styled.label`
   display: inline-flex;
@@ -40,6 +42,7 @@ export const WhyLabel = styled.label`
 
 const Content = styled(WhyLabel)`
   background: ForestGreen;
+  padding-right: 20px;
 
   &::before,
   &::after {
@@ -74,12 +77,20 @@ const Edit = styled.button`
   margin: 17px 5px 0;
 `;
 
-export default ({ children, onClick, onEdit }) => (
+export default ({ children, onClick, onEdit, note }) => (
   <Wrapper>
     <Why as="button" onClick={onClick}>
       Why?
     </Why>
-    <Content as="span">{children}</Content>
+    <Tooltip
+      disabled={!note}
+      animateFill={false}
+      interactive
+      position="bottom"
+      html={<ReactMarkdown source={note} />}
+    >
+      <Content as="span">{children}</Content>
+    </Tooltip>
     <Edit onClick={onEdit}>edit</Edit>
   </Wrapper>
 );

@@ -12,3 +12,18 @@ body {
 *::after {
   box-sizing: border-box;
 }
+
+.tippy-tooltip {
+  background: black;
+  border-radius: 0;
+  padding: 7px;
+  text-align: left;
+}
+
+button[data-draftail-balloon] {
+  line-height: 1;
+}
+
+ul {
+  padding: 0 0 0 1.5rem;
+}

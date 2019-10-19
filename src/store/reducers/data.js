@@ -55,6 +55,20 @@ const reducer = createReducers({
       draft: {},
     };
   },
+  [constants.SAVE_NOTE]: (state, draft) => {
+    const contentDraftIndex = state.content.findIndex(
+      item => item.id === draft.id
+    );
+    const newContent = [
+      ...state.content.slice(0, contentDraftIndex),
+      draft,
+      ...state.content.slice(contentDraftIndex + 1),
+    ];
+    return {
+      ...state,
+      content: newContent,
+    };
+  },
 });
 
 export default (state = initialState, action) => reducer(state, action);

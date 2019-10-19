@@ -4,7 +4,6 @@ import Content from 'components/Content';
 import Download from 'components/Download';
 import Upload from 'components/Upload';
 import Indent from 'components/UI/Indent';
-
 import Layout from 'components/UI/Layout';
 import Title from 'components/UI/Title';
 import Subtitle from 'components/UI/Subtitle';

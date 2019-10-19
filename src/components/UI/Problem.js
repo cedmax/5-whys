@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 
 export const ProblemLabel = styled.label`
@@ -9,7 +10,7 @@ export const ProblemLabel = styled.label`
   align-items: center;
 `;
 
-export const Problem = styled.button`
+export const ProblemButton = styled.button`
   display: inline-block;
   background: red;
   color: white;
@@ -20,3 +21,7 @@ export const Problem = styled.button`
   font-size: 100%;
   cursor: pointer;
 `;
+
+export const Problem = ({ onClick, children }) => (
+  <ProblemButton onClick={onClick}>{children}</ProblemButton>
+);
