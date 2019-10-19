@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Tooltip } from 'react-tippy';
 import ReactMarkdown from 'react-markdown';
+import breaks from 'remark-breaks';
 
 export const WhyLabel = styled.label`
   display: inline-flex;
@@ -87,7 +88,13 @@ export default ({ children, onClick, onEdit, note }) => (
       animateFill={false}
       interactive
       position="bottom"
-      html={<ReactMarkdown source={note} />}
+      html={
+        <ReactMarkdown
+          includeNodeIndex={false}
+          plugins={[breaks]}
+          source={note}
+        />
+      }
     >
       <Content as="span">{children}</Content>
     </Tooltip>

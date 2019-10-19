@@ -1,40 +1,50 @@
-import React, { useState, useCallback } from 'react';
-import { DraftailEditor, BLOCK_TYPE, INLINE_STYLE } from 'draftail';
-import { draftjsToMd } from 'draftjs-md-converter';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
+import Stackedit from 'stackedit-js';
 import Button from 'components/UI/Button';
-
-const toHTML = raw => (raw ? draftjsToMd(raw) : '');
+import TextArea, { Buttons } from 'components/UI/TextArea';
 
 export default ({ item, onSave }) => {
+  const el = useRef();
   const [current, setCurrent] = useState(item.note);
-  const onChange = useCallback(
-    noteValue => {
-      setCurrent(noteValue);
-    },
-    [setCurrent]
-  );
-  const saveNote = useCallback(
-    () => onSave({ ...item, note: toHTML(current) }),
-    [onSave, item, current]
-  );
+  console.log(current);
+  const [stackEdit, setStackEdit] = useState(null);
+  const saveNote = useCallback(() => onSave({ ...item, note: current }), [
+    onSave,
+    item,
+    current,
+  ]);
+
+  useEffect(() => {
+    if (el.current) {
+      const stackedit = new Stackedit();
+      stackedit.on('fileChange', file => {
+        setCurrent(file.content.text);
+      });
+      setStackEdit(stackedit);
+    }
+  }, [el, setCurrent]);
+
   return (
     <>
-      <DraftailEditor
-        showPreview={false}
-        rawContentState={current}
-        onSave={onChange}
-        blockTypes={[
-          { type: BLOCK_TYPE.HEADER_ONE },
-          { type: BLOCK_TYPE.HEADER_TWO },
-          { type: BLOCK_TYPE.HEADER_THREE },
-          { type: BLOCK_TYPE.UNORDERED_LIST_ITEM },
-        ]}
-        inlineStyles={[
-          { type: INLINE_STYLE.BOLD },
-          { type: INLINE_STYLE.ITALIC },
-        ]}
+      <TextArea
+        ref={el}
+        value={current}
+        onChange={e => setCurrent(e.target.value)}
       />
-      <Button onClick={saveNote}>Save</Button>
+      <Buttons>
+        <Button
+          onClick={() =>
+            stackEdit.openFile({
+              content: {
+                text: current, // and the Markdown content.
+              },
+            })
+          }
+        >
+          Editor
+        </Button>
+        <Button onClick={saveNote}>Save</Button>
+      </Buttons>
     </>
   );
 };
