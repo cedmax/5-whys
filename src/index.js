@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'react-tippy/dist/tippy.css';
-import 'draft-js/dist/Draft.css';
-import 'draftail/dist/draftail.css';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
