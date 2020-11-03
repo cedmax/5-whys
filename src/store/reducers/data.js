@@ -10,10 +10,13 @@ const initialState = {
 const generateID = () => (+new Date()).toString(36).slice(-8);
 
 const reducer = createReducers({
+  [constants.SYNC]: (state, payload) => {
+    return { ...state, ...payload };
+  },
   [constants.ADD]: (state, { content }) => {
     const newContent = [...state.content];
     const id = generateID();
-    newContent.push({ id, content, parent: state.active || undefined });
+    newContent.push({ id, content, parent: state.active || null });
 
     return {
       ...state,
@@ -31,18 +34,18 @@ const reducer = createReducers({
     return {
       ...state,
       content: data,
-      active: data.find(item => !item.parent).id,
+      active: data.find((item) => !item.parent).id,
     };
   },
   [constants.EDIT]: (state, { id }) => {
     return {
       ...state,
-      draft: state.content.find(item => item.id === id),
+      draft: state.content.find((item) => item.id === id),
     };
   },
   [constants.SAVE]: (state, draft) => {
     const contentDraftIndex = state.content.findIndex(
-      item => item.id === draft.id
+      (item) => item.id === draft.id
     );
     const newContent = [
       ...state.content.slice(0, contentDraftIndex),
