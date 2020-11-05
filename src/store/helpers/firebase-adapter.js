@@ -19,7 +19,6 @@ const db = firebase.database();
 let id = document.location.pathname.substring(1);
 if (!validate(id)) {
   id = v4();
-  document.location.replace(`/${id}`);
 }
 
 export const fromDb = (dispatch) => {
@@ -34,5 +33,10 @@ export const fromDb = (dispatch) => {
 };
 
 export const toDb = (state) => {
-  db.ref(`/${env}/${id}`).set(state.data);
+  if (state.data.cloud) {
+    window.history.replaceState(null, document.title, `/${id}`);
+
+    const { content } = state.data;
+    db.ref(`/${env}/${id}`).set({ content });
+  }
 };

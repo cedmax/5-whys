@@ -7,4 +7,6 @@ export default keys([
   'CHANGE_PARENT',
   'RESTORE_DATA',
   'SYNC',
+  'TYPE',
+  'CLOUD',
 ]);

@@ -1,17 +1,16 @@
 import { connect } from 'react-redux';
-import { addContent } from 'store/action-creators';
-import { getActiveNode } from 'store/selectors';
+import { addContent, typeValue } from 'store/action-creators';
+import { getActiveNode, getCurrentValue } from 'store/selectors';
 import UiComponent from './Form';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   active: getActiveNode(state),
+  value: getCurrentValue(state),
 });
 
 const mapDispatchToProps = {
   onSave: addContent,
+  onType: typeValue,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(UiComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(UiComponent);

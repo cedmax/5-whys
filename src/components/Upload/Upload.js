@@ -4,13 +4,12 @@ import Indent from 'components/UI/Indent';
 
 export default ({ content, restoreData }) => {
   const onChange = useCallback(
-    e => {
+    (e) => {
       const file = e.target.files[0];
       const reader = new FileReader();
 
-      reader.onload = event => {
+      reader.onload = (event) => {
         const data = JSON.parse(event.target.result);
-        console.log(data);
         restoreData(data);
       };
 
