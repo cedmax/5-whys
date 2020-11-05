@@ -28,7 +28,7 @@ export const EnableCloud = styled.button`
   vertical-align: top;
   border: 0;
   cursor: pointer;
-  line-height: 32px;
+  padding: 5px;
 
   &:hover {
     color: black;
@@ -39,8 +39,6 @@ export const EnableCloud = styled.button`
   span {
     vertical-align: middle;
     display: inline-block;
-    height: 36px;
-    padding-top: 3px;
     margin-right: 3px;
   }
 `;
