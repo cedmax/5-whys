@@ -1,7 +1,7 @@
 import React from 'react';
 import { DownloadButton } from 'components/UI/Button';
 
-export default ({ content }) => {
+const Download = ({ content }) => {
   const href = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(content));
 
   return (
@@ -12,3 +12,5 @@ export default ({ content }) => {
     )
   );
 };
+
+export default Download;

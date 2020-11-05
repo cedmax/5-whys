@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { UploadButton } from 'components/UI/Button';
 import Indent from 'components/UI/Indent';
 
-export default ({ content, restoreData }) => {
+const Upload = ({ content, restoreData }) => {
   const onChange = useCallback(
     (e) => {
       const file = e.target.files[0];
@@ -31,3 +31,5 @@ export default ({ content, restoreData }) => {
     )
   );
 };
+
+export default Upload;

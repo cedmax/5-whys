@@ -51,7 +51,7 @@ const Content = styled(WhyLabel)`
   }
 `;
 
-const Why = styled(WhyLabel)`
+const WhyBlock = styled(WhyLabel)`
   cursor: pointer;
 
   &::before,
@@ -74,12 +74,13 @@ const Edit = styled.button`
   margin: 17px 5px 0;
 `;
 
-export default ({ children, onClick, onEdit }) => (
+const Why = ({ children, onClick, onEdit }) => (
   <Wrapper>
-    <Why as="button" onClick={onClick}>
+    <WhyBlock as="button" onClick={onClick}>
       Why?
-    </Why>
+    </WhyBlock>
     <Content as="span">{children}</Content>
     <Edit onClick={onEdit}>edit</Edit>
   </Wrapper>
 );
+export default Why;

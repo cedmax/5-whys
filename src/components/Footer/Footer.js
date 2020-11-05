@@ -1,11 +1,13 @@
 import React from 'react';
-import Footer from 'components/UI/Footer';
+import FooterUI from 'components/UI/Footer';
 
-export default () => (
-  <Footer>
+const Footer = () => (
+  <FooterUI>
     made by{' '}
     <a href="https://cedmax.com" target="_blank" rel="noopener noreferrer">
       cedmax
     </a>{' '}
-  </Footer>
+  </FooterUI>
 );
+
+export default Footer;

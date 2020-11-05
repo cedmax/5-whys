@@ -4,7 +4,9 @@ import Button from 'components/UI/Button';
 import { ProblemLabel } from 'components/UI/Problem';
 import { WhyLabel, Wrapper } from 'components/UI/Why';
 
-export default ({ onSave, onType, draft = {}, active, parent, value }) => {
+const _noop = () => {};
+
+const Form = ({ onSave, onType, draft = {}, active, parent, value }) => {
   const form = useRef();
   const input = useRef();
 
@@ -36,7 +38,7 @@ export default ({ onSave, onType, draft = {}, active, parent, value }) => {
           isProblem={isProblem}
           defaultValue={draft.content || value}
           type="text"
-          onChange={!draft.content ? onChange : () => {}}
+          onChange={!draft.content ? onChange : _noop}
           name="toSave"
         />
         <Button type="submit">add</Button>
@@ -44,3 +46,5 @@ export default ({ onSave, onType, draft = {}, active, parent, value }) => {
     )
   );
 };
+
+export default Form;

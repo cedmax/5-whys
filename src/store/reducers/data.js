@@ -84,4 +84,5 @@ const reducer = createReducers({
   },
 });
 
-export default (state = initialState, action) => reducer(state, action);
+const reducers = (state = initialState, action) => reducer(state, action);
+export default reducers;

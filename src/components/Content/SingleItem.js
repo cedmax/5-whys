@@ -39,7 +39,7 @@ const Body = memo(({ item, cloud, draft, onEdit, onClick, onCloudEnabled }) => {
   }
 });
 
-export default ({ item, ...props }) => {
+const SingleItem = ({ item, ...props }) => {
   return (
     <div key={item.content}>
       <Body {...props} item={item} />
@@ -47,3 +47,5 @@ export default ({ item, ...props }) => {
     </div>
   );
 };
+
+export default SingleItem;
