@@ -18,9 +18,26 @@ function App() {
         <Indent>
           <Title>5whys</Title>
           <Subtitle>
-            add a problem statement and start answering the questions;
+            <p>
+              The 5-whys is a technique developed within Toyota as a critical
+              <br />
+              component of its problem-solving training.{' '}
+              <a
+                href="https://buffer.com/resources/5-whys-process/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                More details
+              </a>
+              .
+            </p>
+            <p>
+              Add a problem statement and start answering the why questions;
+              <br />
+              click on existing blocks to open new threads.
+            </p>
+
             <br />
-            click on existing blocks to open new threads.
           </Subtitle>
         </Indent>
         <Content />

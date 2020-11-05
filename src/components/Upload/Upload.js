@@ -21,7 +21,7 @@ export default ({ content, restoreData }) => {
 
   return (
     !content.length && (
-      <Indent>
+      <Indent style={{ marginTop: '10px' }}>
         or{' '}
         <UploadButton as="label" htmlFor="file">
           Upload
@@ -32,7 +32,7 @@ export default ({ content, restoreData }) => {
           id="file"
           style={{ display: 'none' }}
         />{' '}
-        a previous save
+        a previously saved analysis
       </Indent>
     )
   );
