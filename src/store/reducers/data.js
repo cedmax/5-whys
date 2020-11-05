@@ -70,9 +70,7 @@ const reducer = createReducers({
     };
   },
   [constants.SAVE]: (state, draft) => {
-    const contentDraftIndex = state.content.findIndex(
-      (item) => item.id === draft.id
-    );
+    const contentDraftIndex = state.content.findIndex((item) => item.id === draft.id);
     const newContent = [
       ...state.content.slice(0, contentDraftIndex),
       draft,

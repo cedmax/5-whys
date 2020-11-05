@@ -19,20 +19,13 @@ const Body = memo(({ item, cloud, draft, onEdit, onClick, onCloudEnabled }) => {
     return (
       <Fragment>
         <Problem onClick={() => onClick(item)}>{item.content}</Problem>
-        <EnableCloud
-          onMouseOut={reset}
-          onClick={!cloud ? onCloudEnabled : copy}
-        >
+        <EnableCloud onMouseOut={reset} onClick={!cloud ? onCloudEnabled : copy}>
           <span role="img" aria-label="Clound Sync">
             {!cloud ? <CloudIconDisabled /> : <CloudIconEnabled />}
           </span>
 
           <span>
-            {!cloud
-              ? 'Enable cloud sync'
-              : !copied
-              ? 'Cloud sync enabled, click to copy link'
-              : 'Link copied'}
+            {!cloud ? 'Enable cloud sync' : !copied ? 'Cloud sync enabled, click to copy link' : 'Link copied'}
           </span>
         </EnableCloud>
       </Fragment>

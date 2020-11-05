@@ -3,7 +3,7 @@ import { getAllContent } from 'store/selectors';
 import { restoreData } from 'store/action-creators';
 import UiComponent from './Upload';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   content: getAllContent(state),
 });
 
@@ -11,7 +11,4 @@ const mapDispatchToProps = {
   restoreData,
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(UiComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(UiComponent);

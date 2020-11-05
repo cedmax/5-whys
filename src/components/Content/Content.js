@@ -3,15 +3,7 @@ import Form from 'components/Form';
 import Indent from 'components/UI/Indent';
 import SingleItem from './SingleItem';
 
-export default ({
-  draft,
-  parent,
-  content,
-  changeParent,
-  editContent,
-  enableCloud,
-  cloud,
-}) => {
+export default ({ draft, parent, content, changeParent, editContent, enableCloud, cloud }) => {
   const onClick = useCallback((item) => changeParent(item), [changeParent]);
   const onEdit = useCallback((item) => editContent(item), [editContent]);
 

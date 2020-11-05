@@ -29,9 +29,7 @@ export default ({ onSave, onType, draft = {}, active, parent, value }) => {
   return (
     (parent === active || !active) && (
       <Wrapper as="form" ref={form} onSubmit={onSubmit}>
-        <Label htmlFor="toSave">
-          {isProblem ? 'Problem Statement' : 'Why?'}
-        </Label>
+        <Label htmlFor="toSave">{isProblem ? 'Problem Statement' : 'Why?'}</Label>
         <Input
           id="toSave"
           ref={input}

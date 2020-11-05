@@ -22,11 +22,7 @@ function App() {
               The 5-whys is a technique developed within Toyota as a critical
               <br />
               component of its problem-solving training.{' '}
-              <a
-                href="https://buffer.com/resources/5-whys-process/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="https://buffer.com/resources/5-whys-process/" target="_blank" rel="noopener noreferrer">
                 More details
               </a>
               .

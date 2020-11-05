@@ -26,13 +26,7 @@ export default ({ content, restoreData }) => {
         <UploadButton as="label" htmlFor="file">
           Upload
         </UploadButton>
-        <input
-          onChange={onChange}
-          type="file"
-          id="file"
-          style={{ display: 'none' }}
-        />{' '}
-        a previously saved analysis
+        <input onChange={onChange} type="file" id="file" style={{ display: 'none' }} /> a previously saved analysis
       </Indent>
     )
   );
