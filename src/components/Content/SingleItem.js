@@ -5,15 +5,13 @@ import Content from 'components/Content';
 import EditForm from 'components/Form/edit';
 import CloudIconDisabled from 'components/UI/CloudIconDisabled';
 import CloudIconEnabled from 'components/UI/CloudIconEnabled';
-import copy from 'copy-to-clipboard';
-
-const copyToClipboard = () => {
-  copy(document.location.href);
-};
+import useCopy from '@react-hook/copy';
 
 const Body = memo(({ item, cloud, draft, onEdit, onClick, onCloudEnabled }) => {
   const isEdit = draft.id === item.id;
   const isTopLevel = !item.parent;
+
+  const { copied, copy, reset } = useCopy(document.location.href);
 
   if (isEdit) {
     return <EditForm parent={true} />;
@@ -21,7 +19,10 @@ const Body = memo(({ item, cloud, draft, onEdit, onClick, onCloudEnabled }) => {
     return (
       <Fragment>
         <Problem onClick={() => onClick(item)}>{item.content}</Problem>
-        <EnableCloud onClick={!cloud ? onCloudEnabled : copyToClipboard}>
+        <EnableCloud
+          onMouseOut={reset}
+          onClick={!cloud ? onCloudEnabled : copy}
+        >
           <span role="img" aria-label="Clound Sync">
             {!cloud ? <CloudIconDisabled /> : <CloudIconEnabled />}
           </span>
@@ -29,7 +30,9 @@ const Body = memo(({ item, cloud, draft, onEdit, onClick, onCloudEnabled }) => {
           <span>
             {!cloud
               ? 'Enable cloud sync'
-              : 'Cloud sync enabled, click to copy link'}
+              : !copied
+              ? 'Cloud sync enabled, click to copy link'
+              : 'Link copied'}
           </span>
         </EnableCloud>
       </Fragment>
