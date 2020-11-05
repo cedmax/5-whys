@@ -4,13 +4,12 @@ import Indent from 'components/UI/Indent';
 
 export default ({ content, restoreData }) => {
   const onChange = useCallback(
-    e => {
+    (e) => {
       const file = e.target.files[0];
       const reader = new FileReader();
 
-      reader.onload = event => {
+      reader.onload = (event) => {
         const data = JSON.parse(event.target.result);
-        console.log(data);
         restoreData(data);
       };
 
@@ -22,7 +21,7 @@ export default ({ content, restoreData }) => {
 
   return (
     !content.length && (
-      <Indent>
+      <Indent style={{ marginTop: '10px' }}>
         or{' '}
         <UploadButton as="label" htmlFor="file">
           Upload
@@ -33,7 +32,7 @@ export default ({ content, restoreData }) => {
           id="file"
           style={{ display: 'none' }}
         />{' '}
-        a previous save
+        a previously saved analysis
       </Indent>
     )
   );

@@ -20,3 +20,25 @@ export const Problem = styled.button`
   font-size: 100%;
   cursor: pointer;
 `;
+
+export const EnableCloud = styled.button`
+  display: inline-block;
+  background: transparent;
+  color: white;
+  vertical-align: top;
+  border: 0;
+  cursor: pointer;
+  padding: 5px;
+
+  &:hover {
+    color: black;
+  }
+  svg {
+    width: 30px;
+  }
+  span {
+    vertical-align: middle;
+    display: inline-block;
+    margin-right: 3px;
+  }
+`;
