@@ -3,7 +3,7 @@ import { saveContent, typeValue } from 'store/action-creators';
 import { getDraft, getCurrentValue } from 'store/selectors';
 import UiComponent from './Form';
 
-const mapStateToProps = (state, props) => ({
+const mapStateToProps = (state) => ({
   draft: getDraft(state),
   value: getCurrentValue(state),
 });
